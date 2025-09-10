@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 100);
 
       if (link && link !== "YOUR_LINK_HERE" && isValidUrl(link)) {
-        window.location.href = link;
+        window.open(link, "_blank");
       } else {
         alert(
           `Присоединение к лекции: ${subject} (вставьте корректную ссылку в data-link)`
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateClock, 1000);
   updateClock();
 
-  // Add touch support for mobile
+  // Add touch support for mobile (disabled to prevent automatic day switching)
   let touchStartY = 0;
   let touchEndY = 0;
 
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener("touchend", (e) => {
     touchEndY = e.changedTouches[0].screenY;
-    handleSwipe();
+    // handleSwipe(); // Commented out to disable swipe day switching
   });
 
   function handleSwipe() {

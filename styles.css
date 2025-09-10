@@ -321,6 +321,40 @@ input:checked ~ .toggle-label {
   gap: 0.75rem;
 }
 
+/* Transparent scrollbars for mobile */
+@media (max-width: 767px) {
+  .days-grid {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  .days-grid::-webkit-scrollbar {
+    width: 0.5rem; /* Set a minimal width to allow customization */
+    height: 0.5rem;
+  }
+
+  .days-grid::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+  }
+
+  .days-grid::-webkit-scrollbar-thumb {
+    background: transparent; /* Transparent thumb */
+  }
+
+  .days-grid::-webkit-scrollbar-corner {
+    background: transparent; /* Transparent corner */
+  }
+
+  /* Fallback for Firefox */
+  .days-grid {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: transparent transparent; /* Thumb and track color */
+  }
+}
+
 .day-button {
   position: relative;
   padding: 1rem 1.5rem;
@@ -646,21 +680,6 @@ input:checked ~ .toggle-label {
 }
 
 /* Responsive Design for Days Grid */
-@media (max-width: 767px) {
-  .days-grid {
-    display: flex;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: 0.75rem;
-  }
-
-  .day-button {
-    min-width: 120px;
-    flex-shrink: 0;
-  }
-}
-
-/* Responsive Design */
 @media (min-width: 768px) {
   .main-content {
       padding: 2rem;
